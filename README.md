@@ -7,24 +7,33 @@ Run npx gitignore node = creates a gitignore
 Run npm i express helmet knex sqlite3 = install dependencies
 Run npm I nodemon -D = install dev dependency
 
+# Other Dependencies
+bcrypt, cors, jsonwebtoken, knex-cleaner
+
+# Dev Dependencies (testing)
+cross-env, jest, supertest
+
 Initialize knex for our project: `npx knex init` = creates knexfile.js
 
 # Scripts
 “start”: “node index.js”gi
 “server”: “nodemon index.js”
-"testing": "
+
+# Scripts (testing)
+"test": "cross-env DB_ENV=testing jest --watch"
+"jest": {
+    "testEnvironment": "node"
+}
 
 #  Migrations
 Running a migration should create a .db3 file in your vs code
 
-Migrations are a way to record changes to the database schema.
-** Its like git, for the database structure **
 ** EVERY CHANGE TO THE DATABASE SCHEMA (structure) MUST BE DONE WITH A NEW MIGRATION **
 
-// if you install knex globally, you no longer need to use npx. You can use knex migrate:up without npx before
+If you install knex globally, you no longer need to use npx. You can use knex migrate:up without npx before
 Optionally install knex globally on your system: `npm i -g knex` or `yarn global add knex`
 
-
+# Migration Commands
 Create a migration:  ‘npx knex migrate:make name’ = creates a table 
 
 Run a migration: `npx knex migrate:up` = run one migration up
